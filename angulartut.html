@@ -1,0 +1,63 @@
+<!doctype html>
+
+<!--ng-init is a directive example-->
+<html ng-app="app1" ng-init="person = {fName: 'Chris',
+lName: 'Gradwohl'}; location = [{city: 'San Mateo', state: 'CA'},
+{city: 'San Jose', state: 'CA'}, {city: 'Long Beach', state: 'CA'}]">
+  <head>
+    <title>AngularJS Practice</title>
+  </head>
+  <body>
+
+    <!--directive injection-->
+    <!--this div is a view that talks with ctlr1-->
+    <div ng-controller="ctrl1">
+
+      <span>Values:</span>
+      <input type="text" ng-model="first" />
+      <input type="text" ng-model="second" />
+
+      <button ng-click="updateValue()">Sum</button>
+      <br><br>
+
+      <!-- Displays the Scope value of calculation in the {{expression}}-->
+      {{calculation}}
+
+      <!-- You can perform calculations with an {{expression}} -->
+      <p>5 + 5 = {{5+5}}</p>
+
+
+      <!-- {{expression}} bind data to HTML as well -->
+      <!--Data-binding is an automatic way of updating the view
+      whenever the model changes, as well as updating the model
+      whenever the view changes. This is awesome because it
+      eliminates DOM manipulation from the list of things you
+      have to worry about.-->
+      <p>Your first value is {{first}}</p>
+
+      <!-- You can do the same with ng-bind -->
+      <p>Your second value is
+        <span data-ng-bind="second"></span>
+      </p>
+
+      <!-- Strings can be built in expressions -->
+      <p>{{person.fName + " " + person.lName}} you entered {{first + " and " + second}}</p>
+
+      <!-- ng-repeat cycles through a collection -->
+      <ul>
+        <li ng-repeat = "capital in capitals">
+          {{ 'City: ' + capital.city + ', State: ' + capital.state}}
+        </li>
+      </ul>
+
+
+
+
+
+    </div>
+    <!--AngularJS CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <!--my js scripts-->
+    <script src="js/exam1.js"></script>
+  </body>
+</html>
